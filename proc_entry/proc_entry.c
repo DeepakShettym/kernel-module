@@ -36,17 +36,17 @@ static ssize_t myproc_write(struct file *file, const char __user *user_buf,
 static const struct proc_ops myproc_ops = {
     .proc_read  = myproc_read,
     .proc_write = myproc_write,
-};
+}; // needed to map the file opreration performed by the user to the function to be called 
 
 static int __init myproc_init(void)
-{
+{   /*func to create proc entry */
     proc_create(PROC_NAME, 0666, NULL, &myproc_ops); // name , permission , parent , file ops
     pr_info("myproc created\n");
     return 0;
 }
 
 static void __exit myproc_exit(void)
-{
+{   /*func to remove proc entry*/
     remove_proc_entry(PROC_NAME, NULL);
     pr_info("myproc removed\n");
 }
