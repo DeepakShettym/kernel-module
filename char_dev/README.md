@@ -9,8 +9,9 @@ Kernel creates /dev/mydevice
 
 When a user reads/writes to that file → your code runs
 
-When module unloads → device file is removed
----------------------------------------------------------------------------------------------------------------------------------------------------------
+When module unloads device file is removed
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
 ✔️ Step 1: Build
 make
 
