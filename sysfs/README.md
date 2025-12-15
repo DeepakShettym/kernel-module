@@ -89,4 +89,4 @@ successful user ↔ kernel interaction:
 [99014.068546] Iron Man ready to fight
 [99014.068611] Iron Man saved the world
 
-don't take the log seriously!
+These logs are just debug messages — Iron Man did not actually save the world (yet).
