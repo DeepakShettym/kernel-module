@@ -1,45 +1,32 @@
 
-🚀 What happens when you load a char driver?
+# Linux Kernel Module Experiments
 
-You load the module
+This repository contains a collection of **Linux kernel module examples**
+built while exploring **kernel space programming**, device drivers, and
+user ↔ kernel interaction.
 
-Kernel allocates a major number
+Each directory focuses on a specific kernel concept and is kept
+**self-contained** with its own source code and documentation.
 
-Kernel creates /dev/mydevice
+---
 
-When a user reads/writes to that file → your code runs
+## 📂 Repository Structure
 
-When module unloads → device file is removed
----------------------------------------------------------------------------------------------------------------------------------------------------------
-✔️ Step 1: Build
-make
+```text
+kernel-module/
+├── hello/
+│   └── Simple hello-world kernel module
+│
+├── param/
+│   └── Kernel module parameters example
+│
+├── proc_entry/
+│   └── /proc filesystem entry demonstration
+│
+└── sysfs_Avengers/
+    ├── single_device/
+    │   └── Single character device driver using sysfs
+    │
+    └── multidev/
+        └── Multi-device character driver (IronMan & SpiderMan)
 
-✔️ Step 2: Insert module
-sudo insmod char_driver.ko
-
-
-Check logs:
-
-dmesg | tail
-
-
-You will see:
-
-mychardev: major=240 minor=0
-
-✔️ Step 3: Create the device node
-sudo mknod /dev/mychardev c <major> 0
-sudo chmod 666 /dev/mychardev
-
-
-Replace <major> from dmesg.
-
-✔️ Step 4: Test
-Write
-echo "i need food" > /dev/mychardev
-
-Read
-cat /dev/mychardev
-
-✔️ Step 5: Remove
-sudo rmmod char_driver
