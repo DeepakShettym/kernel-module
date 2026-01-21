@@ -40,8 +40,7 @@ copy_from_user() / copy_to_user()
 IOCTL Commands
 Defined in ioctl_deriver.h:
 
-c
-Copy code
+
 #define AVNG_MAGIC 'a'
 
 #define AVNG_WR_VALUE _IOW(AVNG_MAGIC, 1, int32_t)
@@ -52,8 +51,7 @@ AVNG_RD_VALUE	Kernel → User	Read the stored integer value
 
 Build Instructions
 Build kernel module and user application
-bash
-Copy code
+
 make
 This will generate:
 
@@ -62,22 +60,19 @@ ioctl_deriver.ko — kernel module
 ioctl_user — user-space executable
 
 Load the Kernel Module
-bash
-Copy code
+
 sudo insmod ioctl_deriver.ko
 Check kernel logs:
 
-bash
-Copy code
+
 dmesg | tail
 Verify device node:
 
-bash
-Copy code
+
 ls -l /dev/avng_device
 Run the User Application
-bash
-Copy code
+
+
 ./ioctl_user
 Expected Behavior
 Writes a value to the kernel via IOCTL
@@ -87,17 +82,15 @@ Reads the value back from the kernel
 Prints the result to the console
 
 Unload the Kernel Module
-bash
-Copy code
+
 sudo rmmod ioctl_deriver
 Verify unload:
 
-bash
-Copy code
+
 dmesg | tail
 Clean Build Artifacts
-bash
-Copy code
+
+
 make clean
 Kernel Compatibility Notes
 Uses unlocked_ioctl
@@ -112,13 +105,13 @@ Common Issues
 Permission denied when running user application
 Ensure the binary is executable:
 
-bash
-Copy code
+
 chmod +x ioctl_user
 AppArmor warnings in dmesg
 Unrelated to this driver. Common with Snap applications (e.g., Firefox).
 
 Learning Outcomes
+
 This project demonstrates:
 
 Linux kernel module development basics
@@ -132,8 +125,3 @@ Safe user ↔ kernel data exchange
 Author
 Deepak M
 
-Kernel vs user-space header management
-
-Author
-
-Deepak M
