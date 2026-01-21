@@ -43,8 +43,8 @@ Defined in ioctl_deriver.h:
 
 #define AVNG_MAGIC 'a'
 
-#define AVNG_WR_VALUE _IOW(AVNG_MAGIC, 1, int32_t)
-#define AVNG_RD_VALUE _IOR(AVNG_MAGIC, 2, int32_t)
+#define WR_VALUE _IOW(AVNG_MAGIC, 1, int32_t)
+#define RD_VALUE _IOR(AVNG_MAGIC, 2, int32_t)
 Command	Direction	Description
 AVNG_WR_VALUE	User → Kernel	Write an integer value
 AVNG_RD_VALUE	Kernel → User	Read the stored integer value
